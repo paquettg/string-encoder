@@ -1,5 +1,5 @@
 {
-    "name": "paquettg/stringEncode",
+    "name": "paquettg/string-encode",
     "type": "library",
     "description": "Facilitating the process of altering string encoding in PHP.",
     "version": "0.0",
