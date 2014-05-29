@@ -103,7 +103,7 @@ class Encode {
 			throw new Exception('The convertion from "'.$this->from.'" to "'.$this->to.'" was a failure.');
 		}
 
-		// deal with DOM issue for utf-8 text
+		// deal with BOM issue for utf-8 text
 		if ($this->to == 'UTF-8')
 		{
 			if (substr($str, 0, 3) == "\xef\xbb\xbf")

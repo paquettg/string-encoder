@@ -18,7 +18,7 @@ This is a really simple package so there is not much to say about it. The follow
 ```php
 use stringEncode\Encode;
 
-$str    = 'Calendrier de l'avent façon Necta!'
+$str    = "Calendrier de l'avent façon Necta!"
 $encode = new Encode;
 $encode->detect($str);
 $newstr = $encode->convert($str);
