@@ -59,10 +59,10 @@ class Encode {
 	 */
 	public function charset()
 	{
-		return [
+		return array(
 			'from' => $this->from,
 			'to'   => $this->to,
-		];
+        );
 	}
 
 	/**
@@ -72,7 +72,7 @@ class Encode {
 	 * @param array $encodingList
 	 * @return bool
 	 */
-	public function detect($str, $encodingList = ['UTF-8', 'CP1252'])
+	public function detect($str, $encodingList = array('UTF-8', 'CP1252'))
 	{
 		$charset = mb_detect_encoding($str, $encodingList);
 		if ($charset === false)
