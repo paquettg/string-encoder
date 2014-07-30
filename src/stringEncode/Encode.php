@@ -62,7 +62,7 @@ class Encode {
 		return array(
 			'from' => $this->from,
 			'to'   => $this->to,
-        );
+		);
 	}
 
 	/**
