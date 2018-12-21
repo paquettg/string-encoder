@@ -1,14 +1,14 @@
 String Encode
 ==========================
 
-Version 0.1.1
+Version 1.0.0
 
 String Encode is a simple PHP wrapper package to facilitate the encoding of strings in different charsets.
 
 Install
 -------
 
-This package can be found on [packagist](https://packagist.org/packages/paquettg/stringencode) and is best loaded using [composer](http://getcomposer.org/). It does require php 5.4 or higher, so keep that in consideration. 
+This package can be found on [packagist](https://packagist.org/packages/paquettg/stringencode) and is best loaded using [composer](http://getcomposer.org/). It does require php 7.1 or higher, so keep that in consideration. 
 
 Usage
 -----
