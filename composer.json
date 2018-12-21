@@ -2,7 +2,7 @@
     "name": "paquettg/string-encode",
     "type": "library",
     "description": "Facilitating the process of altering string encoding in PHP.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": ["encoding", "charset", "string"],
     "homepage": "https://github.com/paquettg/string-encoder",
     "license": "MIT",

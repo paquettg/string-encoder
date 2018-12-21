@@ -1,7 +1,7 @@
 String Encode
 ==========================
 
-Version 1.0.0
+Version 1.0.1
 
 String Encode is a simple PHP wrapper package to facilitate the encoding of strings in different charsets.
 
