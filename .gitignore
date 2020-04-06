@@ -1,0 +1,22 @@
+# php (composer)
+vendor/
+composer.lock
+
+# php (phpunit)
+build/
+
+# php (infection)
+infection-log.txt
+
+# php (phpcs fixer)
+.php_cs.cache
+
+# gitbook
+_book/
+
+# node
+node_modules/
+npm-debug.log
+
+# ide
+.idea/
