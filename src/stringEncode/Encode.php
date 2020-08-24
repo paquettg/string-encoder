@@ -94,7 +94,7 @@ class Encode {
 	{
 		if ($this->from != $this->to)
 		{
-			$str = iconv($this->from, $this->to, $str);
+			$str = mb_convert_encoding($str, $this->to, $this->from);
 		}
 
 		if ($str === false)
