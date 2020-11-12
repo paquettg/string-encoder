@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added ability to validate encoding.
 - Added SECURITY.md policy.
 - Added static analysis tools.
+- Added FUNDING.yml policy.
+- Added proxy support for static calls to encoder.
 
 ### Changed
 - Removed support for PHP < 7.2.

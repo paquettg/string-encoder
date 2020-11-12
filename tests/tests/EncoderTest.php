@@ -7,7 +7,7 @@ namespace tests;
 use PHPUnit\Framework\TestCase;
 use StringEncoder\Encoder;
 
-class ContentTest extends TestCase
+class EncoderTest extends TestCase
 {
     private $encoder;
 

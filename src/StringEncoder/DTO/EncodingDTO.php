@@ -8,7 +8,7 @@ use StringEncoder\Discovery\ValidatorDiscovery;
 use StringEncoder\Exceptions\InvalidEncodingException;
 use StringEncoder\MB\Validator;
 
-class EncodingDTO
+final class EncodingDTO
 {
     /**
      * @var string

@@ -9,7 +9,7 @@ use StringEncoder\DTO\EncodingDTO;
 use StringEncoder\Exceptions\InvalidEncodingException;
 use StringEncoder\MB\Convert;
 
-class Encoder
+final class Encoder
 {
     /**
      * @var EncodingDTO|null

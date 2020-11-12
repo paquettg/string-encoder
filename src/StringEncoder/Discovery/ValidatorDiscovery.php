@@ -6,7 +6,7 @@ namespace StringEncoder\Discovery;
 
 use StringEncoder\MB\Validator;
 
-class ValidatorDiscovery
+final class ValidatorDiscovery
 {
     /**
      * @var Validator|null
