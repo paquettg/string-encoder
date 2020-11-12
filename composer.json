@@ -2,7 +2,6 @@
     "name": "paquettg/string-encode",
     "type": "library",
     "description": "Facilitating the process of altering string encoding in PHP.",
-    "version": "1.0.1",
     "keywords": ["encoding", "charset", "string"],
     "homepage": "https://github.com/paquettg/string-encoder",
     "license": "MIT",
@@ -14,15 +13,19 @@
         }
     ],
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.2",
+        "ext-mbstring": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.5.1"
+        "phpunit/phpunit": "^7.5.1",
+        "mockery/mockery": "^1.2",
+        "infection/infection": "^0.13.4",
+        "phan/phan": "^2.4",
+        "friendsofphp/php-cs-fixer": "^2.16"
     },
     "autoload": {
-        "psr-0": { 
-        	"stringEncode": "src/"
+        "psr-4": {
+        	"StringEncoder\\": "src/StringEncoder"
        	}
-    },
-    "minimum-stability": "dev"
+    }
 }
