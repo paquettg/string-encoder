@@ -35,4 +35,9 @@ class EncoderTest extends TestCase
         $string = $this->encoder->convert()->fromString('my string')->toString();
         $this->assertEquals('my string', $string);
     }
+
+    public function testGetSourceWithoutSetting()
+    {
+        $this->assertNull($this->encoder->getSourceEncoding());
+    }
 }

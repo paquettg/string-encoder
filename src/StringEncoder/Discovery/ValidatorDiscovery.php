@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace StringEncoder\Discovery;
 
+use StringEncoder\Contracts\Discovery\ValidatorDiscoveryInterface;
 use StringEncoder\MB\Validator;
 
-final class ValidatorDiscovery
+final class ValidatorDiscovery implements ValidatorDiscoveryInterface
 {
     /**
      * @var Validator|null

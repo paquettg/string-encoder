@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace StringEncoder\DTO;
 
+use StringEncoder\Contracts\DTO\EncodingDTOInterface;
 use StringEncoder\Discovery\ValidatorDiscovery;
 use StringEncoder\Exceptions\InvalidEncodingException;
 use StringEncoder\MB\Validator;
 
-final class EncodingDTO
+final class EncodingDTO implements EncodingDTOInterface
 {
     /**
      * @var string
@@ -35,6 +36,8 @@ final class EncodingDTO
 
     /**
      * @throws InvalidEncodingException
+     *
+     * @internal
      */
     public static function makeFromString(string $encoding, ?Validator $validator = null): EncodingDTO
     {

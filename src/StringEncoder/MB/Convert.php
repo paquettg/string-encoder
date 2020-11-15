@@ -6,35 +6,60 @@ namespace StringEncoder\MB;
 
 use StringEncoder\Contracts\ConvertReadInterface;
 use StringEncoder\Contracts\ConvertWriteInterface;
-use StringEncoder\DTO\EncodingDTO;
+use StringEncoder\Contracts\DTO\EncodingDTOInterface;
+use StringEncoder\Contracts\DTO\MBStringDTOInterface;
+use StringEncoder\Contracts\OptionsInterface;
+use StringEncoder\DTO\MBStringDTO;
 use StringEncoder\Exceptions\ConvertNoValueException;
+use StringEncoder\Exceptions\InvalidEncodingException;
+use StringEncoder\MB\UTF8\Bom;
+use StringEncoder\Options;
 
-class Convert implements ConvertReadInterface, ConvertWriteInterface
+class Convert implements ConvertWriteInterface, ConvertReadInterface
 {
     /**
-     * @var EncodingDTO
+     * @var ?EncodingDTOInterface
      */
     private $sourceEncoding;
+
     /**
-     * @var ?EncodingDTO
+     * @var EncodingDTOInterface
      */
     private $targetEncoding;
-    /**
-     * @var ?string
-     */
-    private $value;
 
-    public function __construct(?EncodingDTO $sourceEncoding = null, ?EncodingDTO $targetEncoding = null)
+    /**
+     * @var ?MBStringDTOInterface
+     */
+    private $mbStringDTO;
+
+    /**
+     * @var OptionsInterface
+     */
+    private $options;
+
+    /**
+     * @throws InvalidEncodingException
+     */
+    public function __construct(
+        ?EncodingDTOInterface $sourceEncoding = null,
+        ?EncodingDTOInterface $targetEncoding = null,
+        ?OptionsInterface $options = null)
     {
-        if ($targetEncoding === null) {
-            // default target encoding is UTF-8
-            $targetEncoding = EncodingDTO::makeFromString('UTF-8');
+        if ($options === null) {
+            $options = new Options();
         }
+        $this->options = $options;
+
+        if ($targetEncoding === null) {
+            // apply default target encoding
+            $targetEncoding = $this->options->getDefaultTargetEncoding();
+        }
+
         $this->sourceEncoding = $sourceEncoding;
         $this->targetEncoding = $targetEncoding;
     }
 
-    public function fromString(string $value): ConvertReadInterface
+    public function fromString(string $value): ConvertWriteInterface
     {
         $this->convert($value);
 
@@ -46,19 +71,36 @@ class Convert implements ConvertReadInterface, ConvertWriteInterface
      */
     public function toString(): string
     {
-        if ($this->value === null) {
+        if ($this->mbStringDTO === null) {
             throw new ConvertNoValueException('No value set for call to convert to string.');
         }
 
-        return $this->value;
+        return $this->mbStringDTO->getString();
+    }
+
+    public function toDTO(): MBStringDTOInterface
+    {
+        if ($this->mbStringDTO === null) {
+            throw new ConvertNoValueException('No value set for call to convert to string.');
+        }
+
+        return $this->mbStringDTO;
     }
 
     private function convert(string $value): void
     {
         if ($this->sourceEncoding === null) {
-            $this->value = \mb_convert_encoding($value, $this->targetEncoding->getEncoding());
+            $value = \mb_convert_encoding($value, $this->targetEncoding->getEncoding());
         } elseif ($this->sourceEncoding->getEncoding() !== $this->targetEncoding->getEncoding()) {
-            $this->value = \mb_convert_encoding($value, $this->targetEncoding->getEncoding(), $this->sourceEncoding->getEncoding());
+            $value = \mb_convert_encoding($value, $this->targetEncoding->getEncoding(), $this->sourceEncoding->getEncoding());
+        }
+
+        $this->mbStringDTO = MBStringDTO::makeFromString($value, $this->options, $this->targetEncoding);
+
+        if ($this->options->isRemoveUTF8BOM() &&
+            $this->targetEncoding->getEncoding() === 'UTF-8') {
+            $bom = new Bom();
+            $this->mbStringDTO = $bom->removeBOM($this->mbStringDTO);
         }
     }
 }

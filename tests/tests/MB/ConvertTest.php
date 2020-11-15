@@ -30,9 +30,21 @@ class ConvertTest extends TestCase
         $this->assertEquals('my string', $string);
     }
 
+    public function testToDTO()
+    {
+        $dto = $this->convert->fromString('my string')->toDTO();
+        $this->assertEquals('my string', $dto->getString());
+    }
+
     public function testToStringWithoutFrom()
     {
         $this->expectException(ConvertNoValueException::class);
         $this->convert->toString();
+    }
+
+    public function testToDTOWithoutFrom()
+    {
+        $this->expectException(ConvertNoValueException::class);
+        $this->convert->toDTO();
     }
 }

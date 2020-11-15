@@ -6,5 +6,5 @@ namespace StringEncoder\Contracts;
 
 interface ConvertReadInterface
 {
-    public function toString(): string;
+    public function fromString(string $value): ConvertWriteInterface;
 }

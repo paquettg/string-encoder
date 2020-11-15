@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace StringEncoder\Proxy;
 
-use StringEncoder\Contracts\ConvertWriteInterface;
+use StringEncoder\Contracts\ConvertReadInterface;
+use StringEncoder\Contracts\EncoderInterface;
+use StringEncoder\Contracts\OptionsInterface;
+use StringEncoder\Contracts\ProxyEncoderInterface;
 use StringEncoder\Encoder as EncoderImplementation;
 use StringEncoder\Exceptions\InvalidEncodingException;
 
-final class Encoder
+final class Encoder implements ProxyEncoderInterface
 {
     /**
      * @var EncoderImplementation
@@ -54,6 +57,11 @@ final class Encoder
         self::$encoder = null;
     }
 
+    public static function setOptions(OptionsInterface $options): EncoderInterface
+    {
+        return self::$encoder->setOptions($options);
+    }
+
     public static function getTargetEncoding(): ?string
     {
         return self::$encoder->getTargetEncoding();
@@ -74,7 +82,7 @@ final class Encoder
         self::$encoder->setSourceEncoding($encoding);
     }
 
-    public static function convert(): ConvertWriteInterface
+    public static function convert(): ConvertReadInterface
     {
         return self::$encoder->convert();
     }

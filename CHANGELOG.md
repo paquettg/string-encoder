@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added static analysis tools.
 - Added FUNDING.yml policy.
 - Added proxy support for static calls to encoder.
+- Added contracts to all public methods that are not internal.
+- Added an option to control the default encoding.
+- Added an option to remove the UTF-8 BOM.
+- Added support for mb regex.
 
 ### Changed
 - Removed support for PHP < 7.2.
