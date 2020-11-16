@@ -28,7 +28,7 @@ echo $newstr; // "Calendrier de l'avent façon Necta!" in UTF-8 encoding (defaul
 
 ## Support String Encoder Financially
 
-Get supported String Encoder and help fund the project.
+Get supported String Encoder and help fund the project with the [Tidelift Subscription](https://tidelift.com/subscription/pkg/packagist-paquettg-string-encode?utm_source=undefined&utm_medium=referral&utm_campaign=enterprise).
 
 Tidelift delivers commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use.
 
