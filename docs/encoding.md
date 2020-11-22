@@ -9,11 +9,11 @@
 
 Each part of this package which is intended for public usage has an associated contract interface which will not be changed without a major version update. The contract interfaces are used for dependency which will allow you to insert your own behavior into the package. We will be covering the following contract interfaces in this document.
 
-- [Encoder](src/StringEncoder/Contracts/EncoderInterface.php)
-- [Convert Read](src/StringEncoder/Contracts/ConvertReadInterface.php)
-- [Convert Write](src/StringEncoder/Contracts/ConvertWriteInterface.php)
-- [Options](src/StringEncoder/Contracts/OptionsInterface.php)
-- [Proxy Encoder](src/StringEncoder/Contracts/ProxyEncoderInterface.php)
+- [Encoder](../src/StringEncoder/Contracts/EncoderInterface.php)
+- [Convert Read](../src/StringEncoder/Contracts/ConvertReadInterface.php)
+- [Convert Write](../src/StringEncoder/Contracts/ConvertWriteInterface.php)
+- [Options](../src/StringEncoder/Contracts/OptionsInterface.php)
+- [Proxy Encoder](../src/StringEncoder/Contracts/ProxyEncoderInterface.php)
 
 ## Encoding
 

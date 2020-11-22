@@ -28,8 +28,8 @@ echo $newstr; // "Calendrier de l'avent façon Necta!" in UTF-8 encoding (defaul
 
 ## Documentation
 
-- [Encoding](doc/encoding.md)
-- [Regex](doc/regex.md)
+- [Encoding](docs/encoding.md)
+- [Regex](docs/regex.md)
 
 ## Support String Encoder Financially
 
