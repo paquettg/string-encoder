@@ -12,3 +12,4 @@
 /infection.json.dist export-ignore
 /.phan               export-ignore
 /.php_cs.dist        export-ignore
+/docs                export-ignore

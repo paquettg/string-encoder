@@ -2,6 +2,7 @@ composer.phar
 composer.lock
 infection.log
 /vendor/
+/data
 .idea/
 .php_cs.cache
 *.swp
