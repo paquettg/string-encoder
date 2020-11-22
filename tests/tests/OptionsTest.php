@@ -40,4 +40,10 @@ class OptionsTest extends TestCase
         $this->options->setRemoveUTF8BOM(true);
         $this->assertTrue($this->options->isRemoveUTF8BOM());
     }
+
+    public function testSetCaseSensitiveEncoding()
+    {
+        $this->options->setCaseSensitiveEncoding(false);
+        $this->assertFalse($this->options->isCaseSensitiveEncoding());
+    }
 }

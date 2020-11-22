@@ -15,4 +15,8 @@ interface OptionsInterface
     public function setRemoveUTF8BOM(bool $remove): OptionsInterface;
 
     public function isRemoveUTF8BOM(): bool;
+
+    public function setCaseSensitiveEncoding(bool $caseSensitive): OptionsInterface;
+
+    public function isCaseSensitiveEncoding(): bool;
 }

@@ -29,7 +29,7 @@ use StringEncoder\Encoder;
 $str     = "Calendrier de l'avent façon Necta!";
 $encoder = new Encoder();
 $newstr  = $encoder->convert()->fromString($str)->toString();
-echo $newstr; // "Calendrier de l'avent façon Necta!" in UTF-8 encoding (default)
+echo $newstr; // "Calendrier de l'avent façon Necta!" in UTF-8 encoding (default).
 ```
 
 ### Setting a target and source encoding
@@ -46,7 +46,7 @@ $encoder = new Encoder();
 $encoder->setSourceEncoding('ISO-8859-1'); // This is the source encoding that will be used, we will not auto-detect the encoding.
 $encoder->setTargetEncoding('US-ASCII'); // This is the target encoding, defaults to 'UTF-8'.
 $newstr  = $encoder->convert()->fromString($str)->toString();
-echo $newstr; // "Calendrier de l'avent façon Necta!" in US-ASCII encoding
+echo $newstr; // "Calendrier de l'avent façon Necta!" in US-ASCII encoding.
 ```
 
 ### Read sources
@@ -67,7 +67,7 @@ use StringEncoder\Encoder;
 $str          = "Calendrier de l'avent façon Necta!";
 $encoder      = new Encoder();
 $MBStringDTO  = $encoder->convert()->fromString($str)->toDTO();
-echo $MBStringDTO->getString(); // "Calendrier de l'avent façon Necta!" in UTF-8 encoding (default)
+echo $MBStringDTO->getString(); // "Calendrier de l'avent façon Necta!" in UTF-8 encoding (default).
 echo $MBStringDTO->getEncodingDTO()->getEncoding(); // "UTF-8" as this is the default encoding.
 ```
 
@@ -91,7 +91,7 @@ $encoder->setOptions(
     (new Options())->setDefaultTargetEncoding('US-ASCII')
 );
 $newstr  = $encoder->convert()->fromString($str)->toString();
-echo $newstr; // "Calendrier de l'avent façon Necta!" in US-ASCII encoding (default)
+echo $newstr; // "Calendrier de l'avent façon Necta!" in US-ASCII encoding (default).
 ```
 
 ### Remove UTF-8 BOM
@@ -110,9 +110,29 @@ $encoder->setOptions(
     (new Options())->setRemoveUTF8BOM(true)
 );
 $newstr  = $encoder->convert()->fromString($str)->toString();
-echo $newstr; // "Calendrier de l'avent façon Necta!" in UTF-8 encoding, with out the BOM
+echo $newstr; // "Calendrier de l'avent façon Necta!" in UTF-8 encoding, with out the BOM.
 ```
 
+### Case sensitive encoding
+
+By default, all encoding detection and validation is case-sensitive. This option allows you to forget about the case and use all encodings in what ever case you want. The package will automaticly convert it to the correct case internally.
+
+```php
+<?php
+
+use StringEncoder\Encoder;
+use StringEncoder\Options;
+
+$str     = "Calendrier de l'avent façon Necta!";
+$encoder = new Encoder();
+$encoder->setOptions(
+    (new Options())->setCaseSensitiveEncoding(false)
+);
+$encoder->setTargetEncoding('utF-8');
+$newstr  = $encoder->convert()->fromString($str)->toString();
+echo $encoder->getTargetEncoding(); // "UTF-8" with the correct case.
+echo $newstr; // "Calendrier de l'avent façon Necta!" in UTF-8 encoding.
+```
 ## Proxy
 
 The package provides the ability to create both a proxy and to call all the methods in the encoder using a static call. 

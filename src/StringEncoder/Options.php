@@ -21,6 +21,11 @@ class Options implements OptionsInterface
     private $removeUTF8BOM = false;
 
     /**
+     * @var bool
+     */
+    private $caseSensitiveEncoding = true;
+
+    /**
      * @throws Exceptions\InvalidEncodingException
      */
     public function setDefaultTargetEncoding(string $defaultTargetEncoding): OptionsInterface
@@ -52,5 +57,17 @@ class Options implements OptionsInterface
     public function isRemoveUTF8BOM(): bool
     {
         return $this->removeUTF8BOM;
+    }
+
+    public function setCaseSensitiveEncoding(bool $caseSensitive): OptionsInterface
+    {
+        $this->caseSensitiveEncoding = $caseSensitive;
+
+        return $this;
+    }
+
+    public function isCaseSensitiveEncoding(): bool
+    {
+        return $this->caseSensitiveEncoding;
     }
 }
