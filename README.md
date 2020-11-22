@@ -26,6 +26,11 @@ $newstr  = $encoder->convert()->fromString($str)->toString();
 echo $newstr; // "Calendrier de l'avent façon Necta!" in UTF-8 encoding (default)
 ```
 
+## Documentation
+
+- [Encoding](docs/encoding.md)
+- [Regex](docs/regex.md)
+
 ## Support String Encoder Financially
 
 Get supported String Encoder and help fund the project with the [Tidelift Subscription](https://tidelift.com/subscription/pkg/packagist-paquettg-string-encode?utm_source=undefined&utm_medium=referral&utm_campaign=enterprise).
