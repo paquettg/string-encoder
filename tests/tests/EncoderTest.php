@@ -11,7 +11,7 @@ class EncoderTest extends TestCase
 {
     private $encoder;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->encoder = new Encoder();
     }

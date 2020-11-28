@@ -15,13 +15,13 @@ class EncoderOptionsTest extends TestCase
      */
     private $options;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->options = new Options();
         Encoder::mount('Encoder', new \StringEncoder\Encoder());
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Encoder::unload();
     }

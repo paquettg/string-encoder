@@ -16,7 +16,7 @@ class ConvertTest extends TestCase
      */
     private $convert;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->convert = new Convert(
             EncodingDTO::makeFromString('ISO-8859-1'),

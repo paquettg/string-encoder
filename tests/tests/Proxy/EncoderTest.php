@@ -9,12 +9,12 @@ use StringEncoder\Proxy\Encoder;
 
 class EncoderTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         Encoder::mount('Encoder', new \StringEncoder\Encoder());
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Encoder::unload();
     }

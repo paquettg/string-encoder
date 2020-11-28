@@ -17,7 +17,7 @@ class ConvertFileTest extends TestCase
      */
     private $convert;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->convert = new Convert(
             EncodingDTO::makeFromString('ISO-8859-1'),
@@ -41,7 +41,7 @@ class ConvertFileTest extends TestCase
     {
         $this->convert->fromFile('./tests/data/data.txt')->toFile('./tests/data/test.data.txt');
         $string = $this->convert->fromFile('./tests/data/test.data.txt')->toString();
-        unlink('./tests/data/test.data.txt');
+        \unlink('./tests/data/test.data.txt');
         $this->assertEquals('this is a random string, so random it is the most random string.', $string);
     }
 
@@ -55,6 +55,5 @@ class ConvertFileTest extends TestCase
     {
         $this->expectException(ContentsFailedException::class);
         $this->convert->fromFile('./tests/data/data.txt')->toFile('./tests');
-
     }
 }

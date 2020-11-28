@@ -16,7 +16,7 @@ class RegexTest extends TestCase
      */
     private $regex;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->regex = new Regex();
     }

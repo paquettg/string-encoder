@@ -6,3 +6,4 @@ infection.log
 .idea/
 .php_cs.cache
 *.swp
+.phpunit.result.cache

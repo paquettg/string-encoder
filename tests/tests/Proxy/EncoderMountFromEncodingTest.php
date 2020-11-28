@@ -9,12 +9,12 @@ use StringEncoder\Proxy\Encoder;
 
 class EncoderMountFromEncodingTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         Encoder::mountFromEncoding('ISO-8859-1', 'UTF-8');
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Encoder::unload();
     }

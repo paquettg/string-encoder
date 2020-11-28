@@ -16,7 +16,7 @@ class BomTest extends TestCase
      */
     private $bom;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->bom = new Bom();
     }

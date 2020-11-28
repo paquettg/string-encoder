@@ -14,7 +14,7 @@ class ConvertNoEncodingTest extends TestCase
      */
     private $convert;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->convert = new Convert();
     }

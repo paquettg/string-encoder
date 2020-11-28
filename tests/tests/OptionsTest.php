@@ -16,7 +16,7 @@ class OptionsTest extends TestCase
      */
     private $options;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->encoder = new Encoder();
         $this->options = new Options();

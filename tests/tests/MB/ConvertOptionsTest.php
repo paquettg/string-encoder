@@ -20,7 +20,7 @@ class ConvertOptionsTest extends TestCase
      */
     private $options;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->options = new Options();
         $this->convert = new Convert(

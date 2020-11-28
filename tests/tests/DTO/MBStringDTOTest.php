@@ -19,7 +19,7 @@ class MBStringDTOTest extends TestCase
      */
     private $mbStringDTO;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->mbStringDTO = MBStringDTO::makeFromString('test string', new Options());
     }
