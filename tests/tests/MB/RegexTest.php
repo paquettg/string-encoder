@@ -38,20 +38,19 @@ class RegexTest extends TestCase
             MBStringDTO::makeFromString(
                 'My string!',
                 new Options()
-            )
-        , true);
+            ), true);
         $this->assertEquals('Mystring', $MBStringDTO->getString());
     }
 
     public function testReplaceMultiple()
     {
         $MBStringDTO = $this->regex->replaceMultiple([
-                '[^A-Za-z0-9\.\-]',
-                '[a-z0-9\.\-]',
-            ], [
-                '',
-                'T',
-            ],
+            '[^A-Za-z0-9\.\-]',
+            '[a-z0-9\.\-]',
+        ], [
+            '',
+            'T',
+        ],
             MBStringDTO::makeFromString(
                 'My string!',
                 new Options()

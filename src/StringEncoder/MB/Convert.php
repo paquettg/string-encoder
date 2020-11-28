@@ -10,6 +10,7 @@ use StringEncoder\Contracts\DTO\EncodingDTOInterface;
 use StringEncoder\Contracts\DTO\MBStringDTOInterface;
 use StringEncoder\Contracts\OptionsInterface;
 use StringEncoder\DTO\MBStringDTO;
+use StringEncoder\Exceptions\ContentsFailedException;
 use StringEncoder\Exceptions\ConvertNoValueException;
 use StringEncoder\Exceptions\InvalidEncodingException;
 use StringEncoder\MB\UTF8\Bom;
@@ -59,6 +60,9 @@ class Convert implements ConvertWriteInterface, ConvertReadInterface
         $this->targetEncoding = $targetEncoding;
     }
 
+    /**
+     * @throws InvalidEncodingException
+     */
     public function fromString(string $value): ConvertWriteInterface
     {
         $this->convert($value);
@@ -78,6 +82,42 @@ class Convert implements ConvertWriteInterface, ConvertReadInterface
         return $this->mbStringDTO->getString();
     }
 
+    /**
+     * @throws ContentsFailedException
+     * @throws InvalidEncodingException
+     */
+    public function fromFile(string $filePath): ConvertWriteInterface
+    {
+        $content = @\file_get_contents($filePath);
+        if ($content === false) {
+            throw new ContentsFailedException('file_get_contents failed and returned false when trying to read "' . $filePath . '".');
+        }
+
+        $this->convert($content);
+
+        return $this;
+    }
+
+    /**
+     * @throws ContentsFailedException
+     * @throws ConvertNoValueException
+     */
+    public function toFile(string $filePath): void
+    {
+        if ($this->mbStringDTO === null) {
+            throw new ConvertNoValueException('No value set for call to convert to string.');
+        }
+
+        $string = $this->mbStringDTO->getString();
+        $status = @\file_put_contents($filePath, $string);
+        if ($status === false) {
+            throw new ContentsFailedException('file_put_contents failed and returned false when trying to write "' . $filePath . '".');
+        }
+    }
+
+    /**
+     * @throws ConvertNoValueException
+     */
     public function toDTO(): MBStringDTOInterface
     {
         if ($this->mbStringDTO === null) {
@@ -87,6 +127,9 @@ class Convert implements ConvertWriteInterface, ConvertReadInterface
         return $this->mbStringDTO;
     }
 
+    /**
+     * @throws InvalidEncodingException
+     */
     private function convert(string $value): void
     {
         if ($this->sourceEncoding === null) {

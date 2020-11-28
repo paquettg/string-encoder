@@ -51,11 +51,35 @@ echo $newstr; // "Calendrier de l'avent façon Necta!" in US-ASCII encoding.
 
 ### Read sources
 
-Currently, we only support loading from strings, as the examples above show. We will add additional ways to read sources in future versions. If you have any suggestions please let us know by opening an issue.
+The `ConvertReadInterface` gives access to the the methods available to read strings into the converter. You can both read from a string variable or you can read from a file.
+
+#### Read from file
+
+```php
+<?php
+
+use StringEncoder\Encoder;
+
+$encoder    = new Encoder();
+$newString  = $encoder->convert()->fromFile('./path/to/file.txt')->toString();
+echo $newString; // the contents of the file in UTF-8 encoding (default).
+```
 
 ### Write sources
 
-The `ConvertWriteInterface` allows you to both convert the string to another string or a DTO. This allows you the flexibility to decide how you want to receive the data from the convert action.
+The `ConvertWriteInterface` allows you to both convert the string to another string, file, or a DTO. This allows you the flexibility to decide how you want to receive the data from the convert action.
+
+#### Write to file
+
+```php
+<?php
+
+use StringEncoder\Encoder;
+
+$str          = "Calendrier de l'avent façon Necta!";
+$encoder      = new Encoder();
+$encoder->convert()->fromString($str)->toFile('./path/to/file.txt'); // file.txt will be created and the contents will be put in it.
+```
 
 #### Write to DTO
 

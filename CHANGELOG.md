@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Added the option to write conversions to files.
+- Added the option to load conversions from files.
 - Added case-sensitive option for encoding validation.
 - Added support for php 8.0.
 

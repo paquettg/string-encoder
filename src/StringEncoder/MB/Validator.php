@@ -26,7 +26,7 @@ class Validator
         foreach ($encodingList as $validEncoding) {
             if ($validEncoding === $encoding || (
                     $caseSensitive === false &&
-                    mb_convert_case($validEncoding, MB_CASE_LOWER) === mb_convert_case($encoding, MB_CASE_LOWER))
+                    \mb_convert_case($validEncoding, MB_CASE_LOWER) === \mb_convert_case($encoding, MB_CASE_LOWER))
                 ) {
                 return $validEncoding;
             }
@@ -54,7 +54,7 @@ class Validator
         if ($caseSensitive) {
             $aliasEncoding = \mb_encoding_aliases($validEncoding);
         } else {
-            $encoding = mb_convert_case($encoding, MB_CASE_LOWER);
+            $encoding = \mb_convert_case($encoding, MB_CASE_LOWER);
             $aliasEncoding = $this->lowerCaseArray(\mb_encoding_aliases($validEncoding));
         }
 
@@ -63,14 +63,16 @@ class Validator
 
     /**
      * @internal
+     *
      * @param string[] $encodings
+     *
      * @return string[]
      */
     private function lowerCaseArray(array $encodings): array
     {
         $newEncodings = [];
         foreach ($encodings as $key => $encoding) {
-            $newEncodings[$key] = mb_convert_case($encoding, MB_CASE_LOWER);
+            $newEncodings[$key] = \mb_convert_case($encoding, MB_CASE_LOWER);
         }
 
         return $newEncodings;
