@@ -41,7 +41,7 @@ Tidelift delivers commercial support and maintenance for the open source depende
 
 ### Requirements
 
-- String Encoder works with PHP 7.2, 7.3, and 7.4.
+- String Encoder works with PHP 7.2, 7.3, 7.4, and 8.0.
 
 ### Submitting bugs and feature requests
 
