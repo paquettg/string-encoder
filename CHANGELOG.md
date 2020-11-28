@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 2.1.0
+
 ### Added
 - Added the option to write conversions to files.
 - Added the option to load conversions from files.
