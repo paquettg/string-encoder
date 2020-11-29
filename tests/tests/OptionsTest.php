@@ -35,6 +35,19 @@ class OptionsTest extends TestCase
         $this->assertNull($this->encoder->getTargetEncoding());
     }
 
+    public function testSetDefaultTargetEncoding()
+    {
+        $this->options->setDefaultTargetEncoding('ISO-8859-1');
+        $this->assertEquals('ISO-8859-1', $this->options->getDefaultTargetEncoding()->getEncoding());
+    }
+
+    public function testSetDefaultTargetOptionsEncoding()
+    {
+        $this->options->setCaseSensitiveEncoding(false);
+        $this->options->setDefaultTargetEncoding('iso-8859-1');
+        $this->assertEquals('ISO-8859-1', $this->options->getDefaultTargetEncoding()->getEncoding());
+    }
+
     public function testSetRemoveUTF8BOM()
     {
         $this->options->setRemoveUTF8BOM(true);
@@ -46,4 +59,5 @@ class OptionsTest extends TestCase
         $this->options->setCaseSensitiveEncoding(false);
         $this->assertFalse($this->options->isCaseSensitiveEncoding());
     }
+
 }

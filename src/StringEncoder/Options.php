@@ -30,7 +30,7 @@ class Options implements OptionsInterface
      */
     public function setDefaultTargetEncoding(string $defaultTargetEncoding): OptionsInterface
     {
-        $this->defaultTargetEncoding = EncodingDTO::makeFromString($defaultTargetEncoding);
+        $this->defaultTargetEncoding = EncodingDTO::makeFromString($defaultTargetEncoding, null, $this);
 
         return $this;
     }

@@ -49,7 +49,7 @@ final class Encoder implements EncoderInterface
      */
     public function setTargetEncoding(string $encoding): void
     {
-        $this->targetEncoding = EncodingDTO::makeFromString($encoding);
+        $this->targetEncoding = EncodingDTO::makeFromString($encoding, null, $this->options);
     }
 
     public function getSourceEncoding(): ?string
@@ -66,7 +66,7 @@ final class Encoder implements EncoderInterface
      */
     public function setSourceEncoding(string $encoding): void
     {
-        $this->sourceEncoding = EncodingDTO::makeFromString($encoding);
+        $this->sourceEncoding = EncodingDTO::makeFromString($encoding, null, $this->options);
     }
 
     public function convert(): ConvertReadInterface
