@@ -44,7 +44,8 @@ class Convert implements ConvertWriteInterface, ConvertReadInterface
     public function __construct(
         ?EncodingDTOInterface $sourceEncoding = null,
         ?EncodingDTOInterface $targetEncoding = null,
-        ?OptionsInterface $options = null)
+        ?OptionsInterface $options = null
+    )
     {
         if ($options === null) {
             $options = new Options();

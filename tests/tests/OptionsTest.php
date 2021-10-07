@@ -59,5 +59,4 @@ class OptionsTest extends TestCase
         $this->options->setCaseSensitiveEncoding(false);
         $this->assertFalse($this->options->isCaseSensitiveEncoding());
     }
-
 }

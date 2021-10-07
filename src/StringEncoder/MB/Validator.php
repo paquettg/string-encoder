@@ -25,8 +25,9 @@ class Validator
 
         foreach ($encodingList as $validEncoding) {
             if ($validEncoding === $encoding || (
-                    $caseSensitive === false &&
-                    \mb_convert_case($validEncoding, MB_CASE_LOWER) === \mb_convert_case($encoding, MB_CASE_LOWER))
+                $caseSensitive === false &&
+                    \mb_convert_case($validEncoding, MB_CASE_LOWER) === \mb_convert_case($encoding, MB_CASE_LOWER)
+            )
                 ) {
                 return $validEncoding;
             }

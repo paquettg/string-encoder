@@ -35,7 +35,7 @@ return $config
 		'mb_str_functions' => false,
 		'method_argument_space' => true,
 		'native_function_casing' => true,
-		'native_function_invocation' => true,
+		'native_function_invocation' => ['include'=>['@all']],
 		'native_function_type_declaration_casing' => true,
 		'new_with_braces' => true,
 		'no_blank_lines_after_class_opening' => true,

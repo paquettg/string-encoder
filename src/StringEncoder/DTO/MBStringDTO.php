@@ -36,7 +36,8 @@ final class MBStringDTO implements MBStringDTOInterface
         string $string,
         OptionsInterface $options,
         ?EncodingDTOInterface $encodingDTO = null,
-        ?Validator $validator = null)
+        ?Validator $validator = null
+    )
     {
         if ($validator === null) {
             $validator = ValidatorDiscovery::find();

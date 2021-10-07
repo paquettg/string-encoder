@@ -23,7 +23,9 @@ class RegexTest extends TestCase
 
     public function testReplace()
     {
-        $MBStringDTO = $this->regex->replace('[^A-Za-z0-9\.\-]', '',
+        $MBStringDTO = $this->regex->replace(
+            '[^A-Za-z0-9\.\-]',
+            '',
             MBStringDTO::makeFromString(
                 'my string!',
                 new Options()
@@ -34,23 +36,29 @@ class RegexTest extends TestCase
 
     public function testReplaceIgnoreCase()
     {
-        $MBStringDTO = $this->regex->replace('[^a-z0-9\.\-]', '',
+        $MBStringDTO = $this->regex->replace(
+            '[^a-z0-9\.\-]',
+            '',
             MBStringDTO::makeFromString(
                 'My string!',
                 new Options()
-            ), true);
+            ),
+            true
+        );
         $this->assertEquals('Mystring', $MBStringDTO->getString());
     }
 
     public function testReplaceMultiple()
     {
-        $MBStringDTO = $this->regex->replaceMultiple([
-            '[^A-Za-z0-9\.\-]',
-            '[a-z0-9\.\-]',
-        ], [
-            '',
-            'T',
-        ],
+        $MBStringDTO = $this->regex->replaceMultiple(
+            [
+                '[^A-Za-z0-9\.\-]',
+                '[a-z0-9\.\-]',
+            ],
+            [
+                '',
+                'T',
+            ],
             MBStringDTO::makeFromString(
                 'My string!',
                 new Options()

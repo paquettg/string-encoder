@@ -16,7 +16,7 @@ final class Encoder implements ProxyEncoderInterface
     /**
      * @var EncoderImplementation
      */
-    private static $encoder = null;
+    private static $encoder;
 
     /**
      * @throws InvalidEncodingException
