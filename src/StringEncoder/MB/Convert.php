@@ -131,7 +131,7 @@ class Convert implements ConvertWriteInterface, ConvertReadInterface
     /**
      * @throws InvalidEncodingException
      */
-    private function convert(string $value): void
+    public function convert(string $value): void
     {
         if ($this->sourceEncoding === null) {
             $value = \mb_convert_encoding($value, $this->targetEncoding->getEncoding());
