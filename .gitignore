@@ -7,3 +7,4 @@ infection.log
 .php_cs.cache
 *.swp
 .phpunit.result.cache
+.php-cs-fixer.cache
